@@ -82,7 +82,7 @@ $(document).ready(function () {
         $('#rollButton1').click(function (event) {
             event.preventDefault();
 
-            var player1Roll = p1.roll();
+            // var player1Roll = p1.roll();
 
             // Check player 1 total score
             var checkPlayer1 = p1.checkForWinner();
@@ -97,7 +97,7 @@ $(document).ready(function () {
             // console.log(p1.totalScore);
 
             // Display in section 4
-            // $('displayPlayer1RollScore').text(rolledValue);
+            $('#displayPlayer1RollScore').text(p1.roll());
             $('#displayPlayer1TotalScore').text(p1.totalScore);
 
         });
@@ -117,7 +117,8 @@ $(document).ready(function () {
             // console.log(checkPlayer2);
             // console.log(p2.totalScore);
 
-            // Display in section 4
+            // // Display in section 4
+            // $('#displayPlayer1RollScore').text(p2.roll());
             $('#displayPlayer2TotalScore').text(p2.totalScore);
 
         });
