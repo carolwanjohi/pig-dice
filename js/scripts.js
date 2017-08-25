@@ -2,7 +2,6 @@
 
 // Constructor for Player Object
 function Player(name) {
-    this.turnScore = 0;
     this.totalScore = 0;
     this.playerName = name;
 }
@@ -13,32 +12,33 @@ Player.prototype.roll = function() {
     // Random number generator for a rolled dice
     var rolledValue = Math.floor(6*Math.random())+1;
 
-    this.totalScore += rolledValue;
+    // this.totalScore += rolledValue;
     // When rolledValue is 0 the return is 0
     if(rolledValue === 1) {
         this.totalScore = 0;
         alert("You rolled 1, your turn is over");
     } else {
-        this.totalScore = this.totalScore + this.turnScore;
+        this.totalScore += rolledValue;
     }
 
     // Test
+    // console.log(rolledValue);
     // console.log(this.totalScore);
 
-    return this.totalScore;
+    return rolledValue;
 }
 
 // Hold 
 Player.prototype.hold = function() {
-    console.log(this.totalScore);
+    // console.log(this.totalScore);
     alert(this.playerName + " has held, switch to your opponent");
     return this.totalScore;
 }
 
 // Check for the winner
 Player.prototype.checkForWinner = function() {
-    if (this.totalScore >= 5) {
-        return alert(this.playerName + " wins!")
+    if (this.totalScore >= 100) {
+        return alert(this.playerName + " wins! Game Over!")
     }
 }
 
@@ -87,13 +87,18 @@ $(document).ready(function () {
             // Check player 1 total score
             var checkPlayer1 = p1.checkForWinner();
 
+            // p1.turnScore = rolledValue;
+
             // Test
             // console.log(p1.roll());
             // console.log(player1Roll);
             // console.log(checkPlayer1);
+            // console.log(rolledValue);
+            // console.log(p1.totalScore);
 
             // Display in section 4
-            $('#displayPlayer1TotalScore').text(player1Roll);
+            // $('displayPlayer1RollScore').text(rolledValue);
+            $('#displayPlayer1TotalScore').text(p1.totalScore);
 
         });
 
@@ -110,9 +115,10 @@ $(document).ready(function () {
             // console.log(p2.roll());
             // console.log(player2Roll);
             // console.log(checkPlayer2);
+            // console.log(p2.totalScore);
 
             // Display in section 4
-            $('#displayPlayer2TotalScore').text(player2Roll);
+            $('#displayPlayer2TotalScore').text(p2.totalScore);
 
         });
 
