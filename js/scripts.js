@@ -38,6 +38,13 @@ Player.prototype.roll = function() {
     return this.totalScore;
 }
 
+// Hold 
+Player.prototype.hold = function() {
+    console.log(this.totalScore);
+    alert(this.playerName + " has held, switch to your opponent");
+    return this.totalScore;
+}
+
 // Clear input fields
 function clearFields() {
     $('input#player1').val("");
@@ -103,16 +110,25 @@ $(document).ready(function () {
             $('#displayPlayer2TotalScore').text(player2Roll);
 
         });
+        // Player 1 can hold
+        $('#holdButton1').click(function (event) {
+            event.preventDefault();
 
-        // // Player 1 can hold
-        // $('#holdButton1').click(function (event) {
-        //     event.preventDefault();
+            var player1Hold = p1.hold();
 
-        //     var player1Hold = p1.hold();
+            // Test
+            console.log(player1Hold);
+        });
 
-        //     // Test
-        //     console.log(player1Hold);
-        // });
+        // Player 2 can hold
+        $('#holdButton2').click(function (event) {
+            event.preventDefault();
+
+            var player2Hold = p2.hold();
+
+            // Test
+            console.log(player2Hold);
+        });
 
         // Clear input fields
         clearFields();
