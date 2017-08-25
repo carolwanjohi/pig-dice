@@ -7,16 +7,6 @@ function Player(name) {
     this.playerName = name;
 }
 
-// Random number generator for a rolled dice
-// function throwDice() {
-//     return Math.floor(6*Math.random())+1;
-// }
-
-// Hold 
-// Player.prototype.hold = function () {
-//     return this.totalScore += this.roll
-// }
-
 // Check if roll value is 1
 Player.prototype.roll = function() {
 
@@ -43,6 +33,13 @@ Player.prototype.hold = function() {
     console.log(this.totalScore);
     alert(this.playerName + " has held, switch to your opponent");
     return this.totalScore;
+}
+
+// Check for the winner
+Player.prototype.checkForWinner = function() {
+    if (this.totalScore >= 5) {
+        return alert(this.playerName + " wins!")
+    }
 }
 
 // Clear input fields
@@ -87,9 +84,13 @@ $(document).ready(function () {
 
             var player1Roll = p1.roll();
 
+            // Check player 1 total score
+            var checkPlayer1 = p1.checkForWinner();
+
             // Test
             // console.log(p1.roll());
-            console.log(player1Roll);
+            // console.log(player1Roll);
+            // console.log(checkPlayer1);
 
             // Display in section 4
             $('#displayPlayer1TotalScore').text(player1Roll);
@@ -102,32 +103,39 @@ $(document).ready(function () {
 
             var player2Roll = p2.roll();
 
+            // Check player 2 total score
+            var checkPlayer2 = p2.checkForWinner();
+
             // Test
             // console.log(p2.roll());
-            console.log(player2Roll);
+            // console.log(player2Roll);
+            // console.log(checkPlayer2);
 
             // Display in section 4
             $('#displayPlayer2TotalScore').text(player2Roll);
 
         });
+
         // Player 1 can hold
         $('#holdButton1').click(function (event) {
             event.preventDefault();
 
+            // Hold for player 1
             var player1Hold = p1.hold();
 
             // Test
-            console.log(player1Hold);
+            // console.log(player1Hold);
         });
 
         // Player 2 can hold
         $('#holdButton2').click(function (event) {
             event.preventDefault();
 
+            // Hold for player 2
             var player2Hold = p2.hold();
 
             // Test
-            console.log(player2Hold);
+            // console.log(player2Hold);
         });
 
         // Clear input fields
