@@ -5,7 +5,7 @@
 ## By **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 ## Description
-
+![Pig Dice Intro](images/pig-dice-screenshot-1.png)
 [This](https://carolwanjohi.github.io/pig-dice/) is a web application where 2 users can play Pig Dice against each other. The goal of the game is to be the first player to score 100 points.
 
 On a turn, a player rolls a dice repeatedly until either:
@@ -13,11 +13,16 @@ On a turn, a player rolls a dice repeatedly until either:
   or <br/>
 * the player chooses to hold(stop rolling)
 
+
+![Pig Dice Console 1](images/pig-dice-screenshot-2.png)
+
 When a 1 is rolled, the player's turn ends and no points are scored (the player gets 0 points).
 
 If the player chooses to hold, all their points are added to his or her score.
 
 The game ends when a player reaches a total of 100 or more points. This player becomes the winner.
+
+![Pig Dice Console 2](images/pig-dice-screenshot-3.png)
 
 ## How Pig Dice Works
 
