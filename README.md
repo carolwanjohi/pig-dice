@@ -25,47 +25,15 @@ The game ends when a player reaches a total of 100 or more points. This player b
 ![Pig Dice Console 2](images/pig-dice-screenshot-3.png)
 
 ## How Pig Dice Works
-
-The program should display the inputted name of the two players when the Play button is clicked
-- Input : 
-
-       - Player 1 : John 
-       
-       - Player 2 : Jane
-        
-- Output : 
-
-        - John 
-        
-        - Jane
-
-Player 1 can roll the dice and their result is displayed as a score
-- Input : Click Roll button
-- Output : Score: 4
-
-Player 1 can hold the dice and their current score is retained
-- Input : Click Hold button
-- Output : Score: 4
-
-Player 2 can roll the dice and their result is displayed as a score
-- Input : Click Roll button
-- Output : Score: 6
-
-Player 2 can hold the dice and their current score is retained
-- Input : Click Hold button
-- Output : Score: 6
-
-If a player's roll is 1, their current score will revert to 0
-- Input : Click Roll button
-- Output :
-
-        Roll : 1
-        
-        Score : 0
-
-The program alerts the players of the winner
-- Input : Score : 100
-- Output : Player1 / Player2 is the winner
+| Behavior        | Input           | Outcome  |
+| ------------- |:-------------:| -----:|
+| The program should display the inputted name of the two players when the Play button is clicked | Player 1 : John Player 2 : Jane| John Jane |
+| Player 1 can roll the dice and their result is displayed as a score | Click Roll button | Roll : 4 Score: 4 |
+| Player 1 can hold the dice and their current score is retained | Click Hold button | Roll : 4 Score: 4 |
+| Player 2 can roll the dice and their result is displayed as a score | Click Roll button | Roll : 6 Score: 6 |
+| Player 2 can hold the dice and their current score is retained | Click Hold button | Roll : 6 Score: 6 |
+| If a player's roll is 1, their current score will revert to 0 | Click Roll button | Roll : 1 Score : 0 |
+| The program alerts the players of the winner | Score : x => 100 | Player1 / Player2 is the winner |
 
 ## Setup/Installation Requirements
 
