@@ -93,6 +93,11 @@ function clearFields() {
 // Front-end
 
 $(document).ready(function () {
+        
+    // Click on rules header to show the rules
+    $('.rulesHeader').click(function () {
+      $('.hideMe').toggle();  
+    });
 
     // Play Button 
     $('form#createPlayers').submit(function (event){
@@ -118,6 +123,7 @@ $(document).ready(function () {
 
         // Display in section 4
         $('#players--showing').show();
+        $('.hideMe').hide();
         $('#player1Name').text(p1.playerName);
         $('#player2Name').text(p2.playerName);
 
@@ -202,5 +208,5 @@ $(document).ready(function () {
         // Clear input fields
         clearFields();
     });
-
+    
 });
