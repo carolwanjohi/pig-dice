@@ -124,6 +124,7 @@ $(document).ready(function () {
         // Display in section 4
         $('#players--showing').show();
         $('.hideMe').hide();
+        $('form#createPlayers').hide();
         $('#player1Name').text(p1.playerName);
         $('#player2Name').text(p2.playerName);
 
