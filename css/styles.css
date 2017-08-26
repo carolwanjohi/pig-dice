@@ -1,3 +1,50 @@
-#players--showing{
+/*Hide Players console*/
+#players--showing {
     display: none;
 }
+
+/*Style .jumbotron in section1*/
+.jumbotron{
+    background-color: #D6EAF8;
+}
+
+/*Style h1 in section1*/
+.section1 h1{
+    text-align: center;
+    font-family: 'Miltonian', cursive;
+    font-size: 8em;
+}
+
+/*Style section2*/
+.section2 {
+    font-family: 'Milonga', cursive;
+    font-size: 2em;
+}
+
+/*Style h2 in section2*/
+.section2 h2 {
+    text-align: center;
+    font-size: 3em;
+    cursor: pointer;
+    color: #0088cc;
+}
+
+.section2 h2:hover {
+    text-decoration: underline;
+}
+
+/*Style .section3*/
+.section3 {
+    font-family: 'Milonga', cursive;
+    font-size: 2em;
+}
+
+/*Style #playButton in section3*/
+#playButton {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 2em;
+}
+
+
+
