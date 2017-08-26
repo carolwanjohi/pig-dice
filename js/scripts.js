@@ -1,9 +1,14 @@
 // Back-end
 
+// Store user inputted name to thse variables
+var p1 = " ";
+var p2 = " ";
+
 // Constructor for Player Object
-function Player(name) {
+function Player(active) {
     this.totalScore = 0;
-    this.playerName = name;
+    this.active = active;
+    this.playerName;
 }
 
 // Check if roll value is 1
@@ -12,12 +17,20 @@ Player.prototype.roll = function() {
     // Random number generator for a rolled dice
     var rolledValue = Math.floor(6*Math.random())+1;
 
-    // this.totalScore += rolledValue;
-    // When rolledValue is 0 the return is 0
+    // When rolledValue is 1 the return is 0
     if(rolledValue === 1) {
+        // Revert total score to 0
         this.totalScore = 0;
-        alert("You rolled 1, your turn is over");
+
+        this.active = false;
+
+        // Display alert message
+        alert(this.playerName + " rolled 1, your turn is over");
     } else {
+
+        this.active = true;
+
+        // Add the rolled valueto the total score
         this.totalScore += rolledValue;
     }
 
@@ -30,17 +43,45 @@ Player.prototype.roll = function() {
 
 // Hold 
 Player.prototype.hold = function() {
-    // console.log(this.totalScore);
+
+    this.active = false;
     alert(this.playerName + " has held, switch to your opponent");
+
+    // Test  
+    // console.log(this.totalScore);
+
     return this.totalScore;
 }
 
 // Check for the winner
 Player.prototype.checkForWinner = function() {
     if (this.totalScore >= 100) {
-        return alert(this.playerName + " wins! Game Over!")
+        return alert(this.playerName + " wins! Game Over!");
     }
 }
+
+// Switch players
+// function switchPlayer(activePlayer) {
+//     if(this.active === true) {
+//         console.log("p1 is active");
+//         this.active = false;
+//     } else {
+//         console.log("p2 is active");
+//         this.active = false;
+//     }
+//     return p1.active;
+// }
+
+// Player.prototype.switchPlayer = function() {
+//     if (this.active === true) {
+//         this.active = false;
+//         console.log("p1 is active");
+//     } else {
+//         this.active = true;
+//         console.log("p2 is active");
+//     }
+//     return this.active
+// }
 
 // Clear input fields
 function clearFields() {
@@ -48,11 +89,9 @@ function clearFields() {
     $('input#player2').val("");
 }
 
-// Store user inputted name to thse variables
-var p1 = " ";
-var p2 = " ";
 
 // Front-end
+
 $(document).ready(function () {
 
     // Play Button 
@@ -63,17 +102,22 @@ $(document).ready(function () {
         var player1InputtedName = $('input#player1').val();
         var player2InputtedName = $('input#player2').val();
 
-        p1 = new Player(player1InputtedName);
-        p2 = new Player(player2InputtedName);
+        p1 = new Player(true);
+        p2 = new Player(false);
+
+        p1.playerName = player1InputtedName;
+        p2.playerName = player2InputtedName;
 
         // Test
         // console.log(player1InputtedName);
         // console.log(player2InputtedName);
         // console.log(p1.playerName);
         // console.log(p2.playerName);
+        console.log(p1.active + " initial p1");
+        console.log(p2.active + " initial p2");
 
         // Display in section 4
-        $('#players--showing').toggle();
+        $('#players--showing').show();
         $('#player1Name').text(p1.playerName);
         $('#player2Name').text(p2.playerName);
 
@@ -82,23 +126,25 @@ $(document).ready(function () {
         $('#rollButton1').click(function (event) {
             event.preventDefault();
 
-            // var player1Roll = p1.roll();
-
-            // Check player 1 total score
-            var checkPlayer1 = p1.checkForWinner();
-
-            // p1.turnScore = rolledValue;
-
             // Test
             // console.log(p1.roll());
             // console.log(player1Roll);
             // console.log(checkPlayer1);
             // console.log(rolledValue);
             // console.log(p1.totalScore);
+            // console.log(p1.switchPlayer());
 
             // Display in section 4
             $('#displayPlayer1RollScore').text(p1.roll());
             $('#displayPlayer1TotalScore').text(p1.totalScore);
+
+            // Test
+            // Check active value
+            console.log(p1.active + " not initial p1");
+
+
+            // Check player 1 total score
+            p1.checkForWinner();
 
         });
 
@@ -106,20 +152,23 @@ $(document).ready(function () {
         $('#rollButton2').click(function (event) {
             event.preventDefault();
 
-            var player2Roll = p2.roll();
-
-            // Check player 2 total score
-            var checkPlayer2 = p2.checkForWinner();
-
             // Test
             // console.log(p2.roll());
             // console.log(player2Roll);
             // console.log(checkPlayer2);
             // console.log(p2.totalScore);
+            // console.log(p2.switchPlayer());
 
             // // Display in section 4
-            // $('#displayPlayer1RollScore').text(p2.roll());
+            $('#displayPlayer2RollScore').text(p2.roll());
             $('#displayPlayer2TotalScore').text(p2.totalScore);
+
+            // Test
+            // Check active value
+            console.log(p2.active + " not initial p2");
+
+            // Check player 1 total score
+            p2.checkForWinner();
 
         });
 
@@ -128,10 +177,12 @@ $(document).ready(function () {
             event.preventDefault();
 
             // Hold for player 1
-            var player1Hold = p1.hold();
+            p1.hold();        
 
             // Test
-            // console.log(player1Hold);
+            // console.log(p1.hold());
+            // Check active value
+            console.log(p1.active + " stop p1");
         });
 
         // Player 2 can hold
@@ -139,10 +190,13 @@ $(document).ready(function () {
             event.preventDefault();
 
             // Hold for player 2
-            var player2Hold = p2.hold();
+            p2.hold();
 
             // Test
-            // console.log(player2Hold);
+            // console.log(p2.hold());
+
+            // Check active value
+            console.log(p2.active + " stop p2");  
         });
 
         // Clear input fields
