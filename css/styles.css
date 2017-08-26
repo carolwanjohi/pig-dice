@@ -19,6 +19,9 @@
 .section2 {
     font-family: 'Milonga', cursive;
     font-size: 2em;
+    height: 10em;
+    overflow: auto;
+    border:0.005em solid #EBF5FB;
 }
 
 /*Style h2 in section2*/
