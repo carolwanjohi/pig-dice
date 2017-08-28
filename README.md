@@ -44,8 +44,7 @@ The game ends when a player reaches a total of 100 or more points. This player b
 This requires internet connection
 
 ## Known Bugs
-
-No known bugs
+There is no seitching player capability.
 
 ## Technologies Used
 
