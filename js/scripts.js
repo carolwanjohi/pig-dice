@@ -163,6 +163,12 @@ $(document).ready(function () {
         $('#player1Name').text(p1.playerName);
         $('#player2Name').text(p2.playerName);
 
+        // Deactivate player 2 console
+        p1.active = true;
+        p2.active = false;
+
+        switchPlayer();
+
         
         // Player 1 can roll
         $('#rollButton1').click(function (event) {
@@ -170,6 +176,8 @@ $(document).ready(function () {
 
             p1.active = true;
             p2.active = false;
+
+            switchPlayer();
             p1.roll();
 
             // Test
