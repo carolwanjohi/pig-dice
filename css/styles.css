@@ -63,13 +63,13 @@
     font-size: 2em;
 }
 
-/*Style #player1Console in section4*/
-#player1Console {
+/*Style .player1Console in section4*/
+.player1Console {
     padding-left: 5em;
 }
 
-/*Style #player2Console in section4*/
-#player2Console {
+/*Style .player2Console in section4*/
+.player2Console {
     padding-left: 5em;
 }
 
@@ -100,6 +100,8 @@
     border: 0.005em solid #0088cc;
 }
 
-
-
+/*Style when player1 and player 2 console is disabled*/
+.disableGamingArea {
+    opacity: 0.5;
+}
 
